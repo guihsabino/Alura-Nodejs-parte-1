@@ -1,5 +1,7 @@
 const http = require('http');
 
+const porta = 3000;
+
 const servidor = http.createServer(function (req, resp) {
     resp.end(`<html>
     <head>
@@ -9,6 +11,6 @@ const servidor = http.createServer(function (req, resp) {
     <body>
         <h1>Casa do código</h1>
     </body>
-    </html>`)
+    </html>`);
 });
-servidor.listen(3000);
+servidor.listen(porta);
