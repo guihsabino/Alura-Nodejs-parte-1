@@ -14,15 +14,9 @@ module.exports = (app) => {
             </html>`);
     });
     app.get('/livros', function (req, resp) {
-        resp.send(`<html>
-            <head>
-                <meta charset="UTF-8">
-                <title>Homepageo</title>
-            </head>
-            <body>
-                <h1>Listagem de Livros</h1>
-            </body>
-            </html>`);
+        resp.marko(
+            require('../views/livros/lista/lista.marko')
+        );
     });
 };
 
