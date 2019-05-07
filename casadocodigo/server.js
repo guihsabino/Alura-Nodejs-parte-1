@@ -1,1 +1,3 @@
-console.log('Ola Mundo Node!');
+const http = require('http');
+
+const servidor = http.createServer();
