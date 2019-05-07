@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/guihsabino/Alura-Nodejs-parte-1#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "marko": "4.16.13"
   },
   "devDependencies": {
     "nodemon": "^1.19.0"

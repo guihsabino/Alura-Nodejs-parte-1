@@ -1,3 +1,6 @@
+require('marko/node-require').install();
+require('marko/express');
+
 // Função express para criar abstrações de rotas
 const express = require('express');
 const app = express();
