@@ -34,7 +34,7 @@ module.exports = (app) => {
             resp.marko(require('../views/livros/form/form.marko'));
         });
         app.post('/livros', function (req, resp) {
-            console.log(req.body)
+            console.log(req.body);
         });
 
         // Exemplo de resposta para o navegador
