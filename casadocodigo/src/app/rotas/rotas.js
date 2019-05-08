@@ -31,12 +31,13 @@ module.exports = (app) => {
 
         app.get('/livros/form', function (req, resp) {
 
-            resp.marko(require('../views/livros/form/form.marko'))
+            resp.marko(require('../views/livros/form/form.marko'));
+        });
+        app.post('/livros', function (req, resp) {
+            console.log(req.body)
+        });
 
-        })
-            .catch(erro => console.log(erro));
-
-
+        // Exemplo de resposta para o navegador
         // livroDao.lista(function(erro, resultados) {
 
         //     resp.marko(
