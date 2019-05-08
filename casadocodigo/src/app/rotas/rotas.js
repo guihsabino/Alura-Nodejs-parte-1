@@ -29,6 +29,11 @@ module.exports = (app) => {
             ))
             .catch(erro => console.log(erro));
 
+        app.get('/livros/form', function (req, resp) {
+
+            resp.marko(require('../views/livros/form/form.marko'), { livro: {} });
+        });
+
         app.get('/livros/form/:id', function (req, resp) {
             const id = req.params.id;
             const livroDao = new LivroDao(db);
