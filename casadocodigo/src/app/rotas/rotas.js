@@ -41,6 +41,16 @@ module.exports = (app) => {
                 .catch(erro => console.log(erro));
         });
 
+        // Criada variavel id após a barra, tudo que vier após essa barra entra nessa variavel
+        app.delete('/livros/:id', function (req, resp) {
+            const id = req.params.id;
+
+            const livroDao = new livroDao(db);
+            livroDao.remove(id)
+                .then(() => resp.status(200).end())
+                .catch(erro => console.log(erro));
+        });
+
         // Exemplo de resposta para o navegador
         // livroDao.lista(function(erro, resultados) {
 
