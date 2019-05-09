@@ -4,6 +4,7 @@ require('marko/express');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 
 // URL usada para ativar o middleware
 app.use('/estatico', express.static('src/app/public'));
