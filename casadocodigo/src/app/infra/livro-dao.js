@@ -3,29 +3,33 @@ class LivroDao {
     constructor(db) {
         this._db = db;
     }
-    adiciona() {
+
+    adiciona(livro) {
         return new Promise((resolve, reject) => {
             this._db.run(`
-            INSERT INTO LIVROS (
-                    titulo,
+                INSERT INTO livros (
+                    titulo, 
                     preco,
                     descricao
-                ) values (?, ?, ?)
-            `, [
+                ) values (?,?,?)
+                `,
+                [
                     livro.titulo,
                     livro.preco,
                     livro.descricao
-                ], function (err) {
+                ],
+                function (err) {
                     if (err) {
                         console.log(err);
                         return reject('Não foi possível adicionar o livro!');
                     }
 
                     resolve();
-                })
-
+                }
+            )
         });
     }
+
     lista() {
         return new Promise((resolve, reject) => {
             this._db.all(
@@ -38,7 +42,9 @@ class LivroDao {
             )
         });
     }
+
     buscaPorId(id) {
+
         return new Promise((resolve, reject) => {
             this._db.get(
                 `
@@ -66,30 +72,31 @@ class LivroDao {
                 descricao = ?
                 WHERE id = ?
             `,
-                [
-                    livro.titulo,
-                    livro.preco,
-                    livro.descricao,
-                    livro.id
-                ],
-                erro => {
-                    if (erro) {
-                        return reject('Não foi possível atualizar o livro!');
-                    }
+            [
+                livro.titulo,
+                livro.preco,
+                livro.descricao,
+                livro.id
+            ],
+            erro => {
+                if (erro) {
+                    return reject('Não foi possível atualizar o livro!');
+                }
 
-                    resolve();
-                });
+                resolve();
+            });
         });
     }
 
     remove(id) {
+
         return new Promise((resolve, reject) => {
             this._db.get(
                 `
-                DELETE 
-                FROM livros
-                WHERE id = ?
-            `,
+                    DELETE 
+                    FROM livros
+                    WHERE id = ?
+                `,
                 [id],
                 (erro) => {
                     if (erro) {
