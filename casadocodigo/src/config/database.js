@@ -10,8 +10,8 @@ CREATE TABLE IF NOT EXISTS usuarios (
 )
 `;
 
-const INSERIR_USUARIO_1 =
-    `
+const INSERIR_USUARIO_1 = 
+`
 INSERT INTO usuarios (
     nome_completo, 
     email,
@@ -19,8 +19,8 @@ INSERT INTO usuarios (
 ) SELECT 'Guilherme Sabino', 'guilherme.sabino@icolabora.com', '123' WHERE NOT EXISTS (SELECT * FROM usuarios WHERE email = 'guilherme.sabino@icolabora.com')
 `;
 
-const LIVROS_SCHEMA =
-    `
+const LIVROS_SCHEMA = 
+`
 CREATE TABLE IF NOT EXISTS livros (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     titulo TEXT NOT NULL, 
@@ -30,8 +30,8 @@ CREATE TABLE IF NOT EXISTS livros (
 )
 `;
 
-const INSERIR_LIVRO_1 =
-    `
+const INSERIR_LIVRO_1 = 
+`
 INSERT INTO livros (
     titulo,
     preco,
@@ -39,8 +39,8 @@ INSERT INTO livros (
 ) SELECT 'Node na prática', 30.0, 'Como desenvolver com Node.' WHERE NOT EXISTS (SELECT * FROM livros WHERE titulo = 'Node na prática')
 `;
 
-const INSERIR_LIVRO_2 =
-    `
+const INSERIR_LIVRO_2 = 
+`
 INSERT INTO livros (
     titulo, 
     preco,
