@@ -1,14 +1,9 @@
-const { check, validationResult } = require('express-validator/check');
-const LivroDao = require('../infra/livro-dao');
-const db = require('../../config/database');
-
-const LivroControlador = require('../controlador/livro-controlador');
+const LivroControlador = require('../controladores/livro-controlador');
 const livroControlador = new LivroControlador();
 
 const Livro = require('../modelos/livro');
 
 module.exports = (app) => {
-
     const rotasLivro = LivroControlador.rotas();
 
     app.get(rotasLivro.lista, livroControlador.lista());
