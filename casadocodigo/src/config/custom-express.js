@@ -24,8 +24,14 @@ const rotas = require('../app/rotas/rotas');
 rotas(app);
 
 app.use(function (req, resp, next) {
-  return resp.status(404).marko();
-  require('../app/views/base/erros/404.marko')
+  return resp.status(404).marko(
+    require('../app/views/base/erros/404.marko'));
+});
+
+// Obrigatório setar o tratamento de erro, se for um erro do sistema
+app.use(function (erro, req, resp, next) {
+  return resp.status(500).marko(
+    require('../app/views/base/erros/500.marko'));
 });
 
 module.exports = app;
